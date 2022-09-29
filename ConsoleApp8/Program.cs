@@ -90,7 +90,7 @@ foreach(ссылка на объект in коллекция)
     тело цикла
 }
 */
-
+/*
 int group = 0;
 double s = 0;
 do
@@ -127,3 +127,75 @@ do
     Console.WriteLine("Площадь треугольника: " + s);
 }
 while (group != 0);
+*/
+
+// Задание 2
+/*
+double s = 0, day = 10;
+Console.WriteLine("Кол-во дней?");
+int countDay = int.Parse(Console.ReadLine());
+for (int i = 0; i < countDay; i++)
+{
+    s += day;
+    day += day / 10;
+}
+Console.WriteLine($"Итого км: {s}");
+*/
+
+// тема 4.2 задание 1
+/*double s = 0;
+Console.WriteLine("Введите n");
+int n = int.Parse(Console.ReadLine());
+for (int i = 0; i <= n; i++)
+{
+    s += Math.Pow(-1, i) * 1 / (Math.Pow(2, i));
+}
+Console.WriteLine("Сумма элементов последовательности " + s);
+*/
+// тема 4.2 задание 2
+/*double s = 0, summaSin = 0;
+Console.WriteLine("Введите n");
+int n = int.Parse(Console.ReadLine()); 
+for (int i = 1; i <= n; i++)
+{
+    summaSin += Math.Sin(i);
+    s += 1 / summaSin;
+}
+Console.WriteLine("Сумма элементов последовательности " + s);
+*/
+
+// тема 4.5 задание 14
+// сколько раз встречается минимальный элемент в последовательности
+/*Console.WriteLine("Кол-во элементов?");
+int count = int.Parse(Console.ReadLine());
+int min = int.MaxValue, minCount = 0, value = 0;
+for (int i = 0; i < count; i++)
+{
+    Console.Write($"Введите [{i}] элемент: ");
+    value = int.Parse(Console.ReadLine());
+    if (value < min)
+    {
+        min = value;
+        minCount = 1;
+    }
+    else if (value == min)
+        minCount++;
+}
+Console.WriteLine($"Минимальное значение: {min}, кол-во повторов: {minCount}");
+*/
+Console.WriteLine("Кол-во элементов?");
+int count = int.Parse(Console.ReadLine());
+int min1 = int.MaxValue, min2 = int.MaxValue, value;
+for (int i = 0; i < count; i++)
+{
+    Console.Write($"Введите [{i}] элемент: ");
+    value = int.Parse(Console.ReadLine());
+    if (value < min1)
+    {
+        min2 = min1;// запоминаем прошлое минимальное
+        min1 = value;// запоминаем самое минимальное
+    }
+    else if (value < min2)
+        min2 = value;
+}
+Console.WriteLine($"Второе значение: {min2}");
